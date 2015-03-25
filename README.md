@@ -1,22 +1,22 @@
-ifconfig.co: Simple IP address lookup service
-=============================================
+ifconfig.geek.org.es: Simple IP address lookup service
+======================================================
 
 A simple service for looking up your IP address. This is the code that powers
-http://ifconfig.co
+http://ifconfig.geek.org.es
 
 Basic usage
 ===========
 
 The usual suspects
 ------------------
-    $ curl ifconfig.co
+    $ curl ifconfig.geek.org.es
     127.0.0.1
-    $ wget -q -O - ifconfig.co
+    $ wget -q -O - ifconfig.geek.org.es
     127.0.0.1
 
 BSD fetch
 ---------
-    $ fetch -q -o - ifconfig.co
+    $ fetch -q -o - ifconfig.geek.org.es
     127.0.0.1
 
 Pass the appropriate flag (usually -4 and -6) to your tool to switch between

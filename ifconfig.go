@@ -78,6 +78,8 @@ func (i *Ifconfig) LookupCountry(ip net.IP) (string, error) {
 			return "", fmt.Errorf(
 				"could not determine country for IP: %s", ip)
 		}
+	} else {
+		log.Printf("Access from %s (%s)\n",country,ip)
 	}
 	return country, nil
 }

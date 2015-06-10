@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>What is my IP address? &mdash; ifconfig.geek.org.es</title>
+    <title>What is my IP address? &mdash; ifconfig-dramorcloud.rhcloud.com</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="What is my IP address?">
     <link href="//fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
@@ -50,18 +50,18 @@
         </thead>
         <tbody>
           <tr>
-            <td><code><span class="command">{{ .Cmd.String }}</span> ifconfig.geek.org.es</code></td>
+            <td><code><span class="command">{{ .Cmd.String }}</span> ifconfig-dramorcloud.rhcloud.com</code></td>
             <td class="response">{{ .IP }}</td>
           </tr>
           {{ if $self := . }}
           {{ range $key, $value := .Header }}
           <tr>
-            <td><code><span class="command">{{ $self.Cmd.String }}</span> ifconfig.geek.org.es/{{ ToLower $key }}</code></td>
+            <td><code><span class="command">{{ $self.Cmd.String }}</span> ifconfig-dramorcloud.rhcloud.com/{{ ToLower $key }}</code></td>
             <td class="response">{{ index $self.Header $key 0 }}</td>
           </tr>
           {{end}}
           {{end}}
-          <td><code><span class="command">{{ .Cmd.String }}</span> ifconfig.geek.org.es/all.json</code></td>
+          <td><code><span class="command">{{ .Cmd.String }}</span> ifconfig-dramorcloud.rhcloud.com/all.json</code></td>
           <td><pre class="response">{{ .JSON }}</pre></td>
         </tbody>
       </table>

@@ -201,8 +201,9 @@ func main() {
 	}
 
 	http.HandleFunc("/", i.handler)
-	log.Printf("Listening on %s", opts.Listen)
-	if err := http.ListenAndServe(opts.Listen, nil); err != nil {
+	bind := fmt.Sprintf("%s:%s", os.Getenv("HOST"), os.Getenv("PORT"))
+	log.Printf("Listening on %s", bind)
+	if err := http.ListenAndServe(bind, nil); err != nil {
 		log.Fatal("ListenAndServe: ", err)
 	}
 }

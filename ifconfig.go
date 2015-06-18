@@ -44,9 +44,13 @@ func isCLI(userAgent string) bool {
 
 func parseRealIP(req *http.Request) net.IP {
 	var host string
+	clientIP := req.Header.Get("X-Client-IP")
 	realIP := req.Header.Get("X-Real-IP")
+	
 	if realIP != "" {
 		host = realIP
+	} else if clientIP != "" {
+		host = clientIP
 	} else {
 		host, _, _ = net.SplitHostPort(req.RemoteAddr)
 	}

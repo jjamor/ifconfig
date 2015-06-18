@@ -1,22 +1,22 @@
-ifconfig-dramorcloud.rhcloud.com: Simple IP address lookup service
-===================================================================
+myip.dramor.net: Simple IP address lookup service
+=================================================
 
 A simple service for looking up your IP address. This is the code that powers
-http://ifconfig-dramorcloud.rhcloud.com
+http://myip.dramor.net
 
 Basic usage
 ===========
 
 The usual suspects
 ------------------
-    $ curl ifconfig-dramorcloud.rhcloud.com
+    $ curl myip.dramor.net
     127.0.0.1
-    $ wget -q -O - ifconfig-dramorcloud.rhcloud.com
+    $ wget -q -O - myip.dramor.net
     127.0.0.1
 
 BSD fetch
 ---------
-    $ fetch -q -o - ifconfig-dramorcloud.rhcloud.com
+    $ fetch -q -o - myip.dramor.net
     127.0.0.1
 
 Pass the appropriate flag (usually -4 and -6) to your tool to switch between

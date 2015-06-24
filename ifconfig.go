@@ -18,6 +18,8 @@ import (
 
 var agentExp = regexp.MustCompile("^(?i)(curl|wget|fetch\\slibfetch)\\/.*$")
 
+const MyFQDN = "myip.dramor.net"
+
 type Client struct {
 	IP     net.IP
 	JSON   string
@@ -170,7 +172,7 @@ func (i *Ifconfig) handler(w http.ResponseWriter, req *http.Request) {
 			JSON:   string(b),
 			Header: req.Header,
 			Cmd:    cmd,
-			FQDN:   "myip.dramor.net",
+			FQDN:   MyFQDN,
 		}
 		t.Execute(w, client)
 	}
@@ -189,10 +191,14 @@ func Create(path string) (*Ifconfig, error) {
 }
 
 func main() {
+
+	var host, port = os.Getenv("OPENSHIFT_GO_IP"), os.Getenv("OPENSHIFT_GO_PORT")
+
 	var opts struct {
 		DBPath string `short:"f" long:"file" description:"Path to GeoIP database" value-name:"FILE" default:""`
 		Listen string `short:"l" long:"listen" description:"Listening address" value-name:"ADDR" default:":8080"`
 	}
+
 	_, err := flags.ParseArgs(&opts, os.Args)
 	if err != nil {
 		os.Exit(1)
@@ -203,7 +209,7 @@ func main() {
 	}
 
 	http.HandleFunc("/", i.handler)
-	bind := fmt.Sprintf("%s:%s", os.Getenv("HOST"), os.Getenv("PORT"))
+	bind := fmt.Sprintf("%s:%s", host, port)
 	log.Printf("Listening on %s", bind)
 	if err := http.ListenAndServe(bind, nil); err != nil {
 		log.Fatal("ListenAndServe: ", err)

@@ -18,6 +18,8 @@ import (
 
 var agentExp = regexp.MustCompile("^(?i)(curl|wget|fetch\\slibfetch)\\/.*$")
 
+const MyFQDN = "ifconfig.geek.org.es"
+
 type Client struct {
 	IP     net.IP
 	JSON   string
@@ -170,7 +172,7 @@ func (i *Ifconfig) handler(w http.ResponseWriter, req *http.Request) {
 			JSON:   string(b),
 			Header: req.Header,
 			Cmd:    cmd,
-			FQDN:   "myip.dramor.net",
+			FQDN:   MyFQDN,
 		}
 		t.Execute(w, client)
 	}

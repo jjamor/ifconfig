@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo "Download geolite file..."
+curl http://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.mmdb.gz| gzip -d > $OPENSHIFT_DATA_DIR/GeoLite2-Country.mmdb
+

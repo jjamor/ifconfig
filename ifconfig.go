@@ -179,9 +179,10 @@ func (i *Ifconfig) handler(w http.ResponseWriter, req *http.Request) {
 }
 
 func Create(path string) (*Ifconfig, error) {
+
 	if path == "" {
-		log.Print("Path to GeoIP database not given. Country lookup will be disabled")
-		return &Ifconfig{}, nil
+		log.Print("Path to GeoIP database not given. Trying to get from environment")
+		path = fmt.Sprint(os.Getenv("OPENSHIFT_DATA_DIR"),"/GeoLite2-Country.mmdb")
 	}
 	db, err := geoip2.Open(path)
 	if err != nil {

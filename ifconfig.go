@@ -23,6 +23,7 @@ type Client struct {
 	JSON   string
 	Header http.Header
 	Cmd
+	FQDN   string
 }
 
 type Cmd struct {
@@ -169,6 +170,7 @@ func (i *Ifconfig) handler(w http.ResponseWriter, req *http.Request) {
 			JSON:   string(b),
 			Header: req.Header,
 			Cmd:    cmd,
+			FQDN:   "myip.dramor.net",
 		}
 		t.Execute(w, client)
 	}

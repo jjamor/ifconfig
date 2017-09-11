@@ -18,7 +18,7 @@ import (
 
 var agentExp = regexp.MustCompile("^(?i)(curl|wget|fetch\\slibfetch)\\/.*$")
 
-const MyFQDN = "ifconfig.geek.org.es"
+const MyFQDN = "myip.dramor.net"
 
 type Client struct {
 	IP     net.IP
